@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(MainActivity.this,"AAAAAA",Toast.LENGTH_LONG).show();
 
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage("正在下载");
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
          /* 方案一: 默认安装器 */
         AutoInstaller installer = AutoInstaller.getDefault(MainActivity.this);
-//        installer.install(APK_FILE_PATH);
-        installer.installFromUrl(APK_URL);
+        installer.install(APK_FILE_PATH);
+//        installer.installFromUrl(APK_URL);
         installer.setOnStateChangedListener(new AutoInstaller.OnStateChangedListener() {
             @Override
             public void onStart() {
